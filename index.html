@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff0f4">
+<title>SAD POTATO 🥔</title>
+<style>
+  :root { --pink:#ffdce8; --pink2:#fff0f4; --ink:#573b49; --accent:#f28caf; --cream:#fff8dc; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; min-height:100%; }
+  body {
+    min-height:100vh; display:grid; place-items:center; overflow:hidden;
+    background: radial-gradient(circle at 20% 15%, #fff 0 5%, transparent 28%),
+      radial-gradient(circle at 85% 80%, #ffe0eb 0 4%, transparent 30%), var(--pink2);
+    color:var(--ink); font-family:"Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
+  }
+  .sparkle { position:fixed; color:#f2a5bd; opacity:.7; pointer-events:none; animation: float 5s ease-in-out infinite; }
+  .s1{left:8%;top:15%;font-size:24px}.s2{right:11%;top:20%;font-size:19px;animation-delay:-2s}
+  .s3{left:15%;bottom:17%;font-size:20px;animation-delay:-1s}.s4{right:8%;bottom:12%;font-size:28px;animation-delay:-3s}
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-15px) rotate(10deg)} }
+  .app { width:min(900px, 94vw); min-height:min(650px, 92vh); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; padding:28px 20px 20px; }
+  .topline { position:absolute; top:20px; width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  .brand { font-size:12px; font-weight:900; letter-spacing:.18em; color:#c77d99; }
+  .music-btn { border:1px solid #f4c0d1; background:#fff9fb; color:#9c5873; border-radius:999px; padding:9px 13px; font-weight:800; cursor:pointer; box-shadow:0 4px 0 #f7d1df; }
+  .music-btn:hover { transform:translateY(-1px); }
+  .scene { width:100%; display:grid; grid-template-columns:minmax(230px, .9fr) minmax(250px,1.1fr); align-items:center; gap:clamp(12px,4vw,45px); max-width:730px; margin-top:25px; }
+  .potato-wrap { display:grid; place-items:center; min-height:300px; position:relative; }
+  .potato { width:clamp(220px, 31vw, 290px); height:clamp(245px, 34vw, 320px); position:relative; background:linear-gradient(135deg,#e7b66e,#d99a4e 68%,#c9853c); border:3px solid #b87c3d; border-radius:48% 52% 45% 48% / 42% 42% 57% 58%; box-shadow:inset -13px -13px 0 #c9853c55,inset 10px 10px 0 #fff2b544,0 18px 0 #e9b5c7; animation:bob 3s ease-in-out infinite; transform:rotate(-3deg); }
+  .potato:before,.potato:after { content:""; position:absolute; width:13px;height:8px;border-radius:50%;background:#bd8247aa; transform:rotate(25deg); }
+  .potato:before{left:19%;top:25%}.potato:after{right:17%;top:65%;width:9px;height:6px}
+  @keyframes bob {0%,100%{translate:0 0;rotate:-2deg}50%{translate:0 -9px;rotate:2deg}}
+  .face { position:absolute; inset:0; }
+  .eye { position:absolute; top:39%; width:14px;height:18px;background:#50323a;border-radius:50%; transition:all .25s; }
+  .eye.left{left:32%}.eye.right{right:32%}
+  .mouth { position:absolute; left:50%; top:57%; width:30px;height:16px; transform:translateX(-50%); border-bottom:4px solid #50323a; border-radius:0 0 50% 50%; }
+  .blush { position:absolute; top:49%; width:27px;height:13px;background:#ef8f9c99;border-radius:50%; filter:blur(1px); }
+  .blush.left{left:19%}.blush.right{right:19%}
+  .tear { display:none; position:absolute; top:44%; width:9px;height:17px;background:#80cfe8;border-radius:70% 30% 65% 55%; transform:rotate(20deg); animation:tear 1.3s ease-in-out infinite; }
+  .tear.left{left:28%}.tear.right{right:28%;animation-delay:.4s}
+  @keyframes tear{0%,100%{translate:0 0}50%{translate:0 8px}}
+  .heart-eye {display:none;position:absolute;top:37%;font-size:26px;line-height:1}
+  .heart-eye.left{left:27%}.heart-eye.right{right:27%}
+  .star-eye {display:none;position:absolute;top:35%;font-size:29px;line-height:1;color:#fff2a3;text-shadow:0 1px 2px #c88439}
+  .star-eye.left{left:25%}.star-eye.right{right:25%}
+  .sweat {display:none;position:absolute;right:17%;top:30%;font-size:24px}
+  .tummy-heart {position:absolute;left:50%;top:76%;transform:translateX(-50%);font-size:24px;opacity:.7}
+  .copy { text-align:left; }
+  .eyebrow { display:inline-block; padding:7px 11px; border-radius:999px; background:#ffe1eb; color:#b65f80; font-size:11px; letter-spacing:.12em; font-weight:900; margin-bottom:15px; }
+  h1 { font-size:clamp(28px,4vw,43px); line-height:1.14; margin:0 0 15px; letter-spacing:-.04em; }
+  .sub { color:#9b7281; font-size:14px; line-height:1.6; margin:0; }
+  .tap { margin-top:38px; border:0; border-radius:999px; padding:15px 23px; background:#f28caf; color:white; font-size:14px; font-weight:900; letter-spacing:.04em; box-shadow:0 6px 0 #d9799a; cursor:pointer; transition:transform .15s,box-shadow .15s; }
+  .tap:hover{transform:translateY(-2px);box-shadow:0 8px 0 #d9799a}.tap:active{transform:translateY(4px);box-shadow:0 2px 0 #d9799a}
+  .tap-hint { margin-top:14px; color:#bc8a9c; font-size:11px; letter-spacing:.16em; font-weight:900; animation:pulse 1.8s infinite; }
+  @keyframes pulse{50%{opacity:.45}}
+  .progress { display:flex; gap:6px; margin-top:24px; }
+  .dot { width:7px;height:7px;border-radius:50%;background:#f0c4d2;transition:all .2s; }
+  .dot.active { width:22px;border-radius:10px;background:#e98bab; }
+  .ending .tap { background:#d8799a; }
+  .ending h1 { font-size:clamp(25px,3.5vw,38px); }
+  .small-note { margin-top:10px;font-size:11px;color:#c092a2; }
+  @media(max-width:620px) {
+    .app{padding-top:58px;min-height:100svh;justify-content:flex-start}
+    .topline{top:14px}.scene{grid-template-columns:1fr;gap:3px;margin-top:8px}
+    .potato-wrap{min-height:260px}.potato{width:210px;height:235px}
+    .copy{text-align:center}.eyebrow{margin-bottom:9px}h1{max-width:480px;margin-left:auto;margin-right:auto}
+    .tap{margin-top:22px}.progress{margin-top:17px}
+  }
+  @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+  <span class="sparkle s1">✦</span><span class="sparkle s2">♡</span><span class="sparkle s3">✧</span><span class="sparkle s4">♡</span>
+  <main class="app" id="app">
+    <div class="topline">
+      <div class="brand">🥔 SAD POTATO</div>
+      <button class="music-btn" id="musicToggle" type="button" aria-label="Toggle background music">♫ Music: off</button>
+    </div>
+    <section class="scene" aria-live="polite">
+      <div class="potato-wrap">
+        <div class="potato" id="potato" aria-label="An expressive little potato">
+          <div class="face">
+            <span class="eye left" id="eyeL"></span><span class="eye right" id="eyeR"></span>
+            <span class="heart-eye left" id="heartL">💗</span><span class="heart-eye right" id="heartR">💗</span>
+            <span class="star-eye left" id="starL">✦</span><span class="star-eye right" id="starR">✦</span>
+            <span class="tear left" id="tearL"></span><span class="tear right" id="tearR"></span>
+            <span class="blush left" id="blushL"></span><span class="blush right" id="blushR"></span>
+            <span class="sweat" id="sweat">💦</span>
+            <span class="mouth" id="mouth"></span>
+            <span class="tummy-heart" id="tummy">♡</span>
+          </div>
+        </div>
+      </div>
+      <div class="copy">
+        <div class="eyebrow" id="eyebrow">A TINY POTATO CONFESSION</div>
+        <h1 id="message">this is me when tusiya is vuzy</h1>
+        <p class="sub" id="sub">one little potato, thinking about you a whole lot.</p>
+      </div>
+    </section>
+    <button class="tap" id="nextBtn" type="button">tap anywhere ♡</button>
+    <div class="tap-hint" id="hint">TAP TO CONTINUE</div>
+    <div class="progress" id="progress" aria-label="Story progress"></div>
+    <div class="small-note" id="smallNote">made with a potato-sized amount of love</div>
+  </main>
+  <audio id="bgMusic" src="./background-music.mp3" loop preload="auto"></audio>
+<script>
+(() => {
+  const pages = [
+    { text:"this is me when tusiya is vuzy", mood:"sad", sub:"one little potato, thinking about you a whole lot." },
+    { text:"this is me when i miss tusiya", mood:"cry", sub:"the tears are potato-shaped. please send hugs." },
+    { text:"this is me when i hear a notification (hoping it's tusiya)", mood:"shock", sub:"IS IT YOU?? IS IT?? checking my phone at potato speed." },
+    { text:"this is me when tusiya messages me", mood:"star", sub:"MY WHOLE LITTLE POTATO WORLD JUST LIT UP ✨" },
+    { text:"this is me when TUSIYA CAAAAAAALLLSSS", mood:"happy", sub:"EVERYONE STAY CALM. ACTUALLY NO ONE STAY CALM." },
+    { text:"this is me when i hear tusiya's voice", mood:"heart", sub:"brb, melting into a tiny pile of potato mush." },
+    { text:"this is me when tusiya is being funny (so sexyyy)", mood:"hungry", sub:"giggles, heart-eyes, and one very flustered potato." },
+    { text:"this is me when it's bye bye with tusiya again", mood:"sad", sub:"already missing you before the call even ends :(" },
+    { text:"i miss u tusiya, call me. i miss you so much my honeybunch sugarplum pumpkinpie strawberrylove cupcake cheesecake babyboy honeybee loveydover cupcup :((", mood:"depressed", sub:"please call your potato when you can. all my love, always ♡", final:true }
+  ];
+  const $ = id => document.getElementById(id);
+  const audio = $("bgMusic");
+  let index = 0, musicOn = false;
+  const progress = $("progress");
+  pages.forEach((_,i) => {
+    const dot = document.createElement("span"); dot.className = "dot"; dot.id = "dot"+i;
+    progress.appendChild(dot);
+  });
+  function showPage(i) {
+    index = (i + pages.length) % pages.length;
+    const p = pages[index];
+    $("message").textContent = p.text;
+    $("sub").textContent = p.sub;
+    $("eyebrow").textContent = p.final ? "A VERY IMPORTANT POTATO MESSAGE" : `POTATO FEELINGS • ${String(index+1).padStart(2,"0")} / 09`;
+    $("app").classList.toggle("ending", !!p.final);
+    $("nextBtn").textContent = p.final ? "start over? ♡" : "tap anywhere ♡";
+    $("hint").textContent = p.final ? "TAP TO READ IT ALL OVER AGAIN" : "TAP TO CONTINUE";
+    $("smallNote").textContent = p.final ? "p.s. your potato is always rooting for you 🥔" : "made with a potato-sized amount of love";
+    document.querySelectorAll(".dot").forEach((d,j)=>d.classList.toggle("active",j===index));
+    const eyes = [$("eyeL"),$("eyeR")], mouth=$("mouth");
+    $("tearL").style.display = $("tearR").style.display = "none";
+    $("heartL").style.display = $("heartR").style.display = "none";
+    $("starL").style.display = $("starR").style.display = "none";
+    $("sweat").style.display = "none";
+    $("blushL").style.opacity = $("blushR").style.opacity = ".75";
+    eyes.forEach(e=>{e.style.display="block";e.style.height="18px";e.style.width="14px";e.style.borderRadius="50%";e.style.background="#50323a";e.style.transform="none";});
+    mouth.style.border="0"; mouth.style.width="30px"; mouth.style.height="16px"; mouth.style.top="57%"; mouth.style.borderBottom="4px solid #50323a"; mouth.style.borderRadius="0 0 50% 50%";
+    $("tummy").textContent="♡";
+    const setEye = (el, styles) => Object.assign(el.style, styles);
+    switch(p.mood) {
+      case "sad":
+        mouth.style.transform="translateX(-50%) rotate(180deg)"; mouth.style.top="61%"; eyes.forEach(e=>e.style.transform="rotate(18deg)"); $("tummy").textContent="…"; break;
+      case "cry":
+        $("tearL").style.display=$("tearR").style.display="block"; eyes.forEach(e=>{e.style.height="12px";e.style.borderRadius="50% 50% 15% 15%";}); mouth.style.width="22px"; mouth.style.height="20px"; mouth.style.border="4px solid #50323a"; mouth.style.borderRadius="50%"; mouth.style.background="#f7a7b4"; $("tummy").textContent=""; break;
+      case "shock":
+        eyes.forEach(e=>{e.style.width="18px";e.style.height="23px";}); mouth.style.width="21px";mouth.style.height="25px";mouth.style.border="4px solid #50323a";mouth.style.borderRadius="50%";mouth.style.background="#fff0d5"; $("sweat").style.display="block"; $("tummy").textContent="!"; break;
+      case "star":
+        eyes.forEach(e=>e.style.display="none"); $("starL").style.display=$("starR").style.display="block"; mouth.style.transform="translateX(-50%)"; mouth.style.width="25px";mouth.style.height="24px";mouth.style.border="4px solid #50323a";mouth.style.borderRadius="50%";mouth.style.background="#f28caf"; $("tummy").textContent="✨"; break;
+      case "happy":
+        eyes.forEach(e=>{e.style.height="8px";e.style.borderRadius="0 0 50% 50%";e.style.background="transparent";e.style.borderBottom="4px solid #50323a";}); mouth.style.width="39px";mouth.style.height="23px";mouth.style.border="4px solid #50323a";mouth.style.borderRadius="10px 10px 50% 50%";mouth.style.background="#f28caf"; $("tummy").textContent="♡"; break;
+      case "heart":
+        eyes.forEach(e=>e.style.display="none"); $("heartL").style.display=$("heartR").style.display="block"; mouth.style.width="35px";mouth.style.height="22px";mouth.style.border="4px solid #50323a";mouth.style.borderRadius="10px 10px 50% 50%";mouth.style.background="#f28caf"; $("tummy").textContent="💗"; break;
+      case "hungry":
+        $("sweat").style.display="block"; eyes.forEach(e=>{e.style.height="10px";e.style.borderRadius="50% 50% 0 0";}); mouth.style.width="26px";mouth.style.height="24px";mouth.style.border="4px solid #50323a";mouth.style.borderRadius="50%";mouth.style.background="#7e3d48"; $("tummy").textContent="♡"; $("blushL").style.opacity=$("blushR").style.opacity="1"; break;
+      case "depressed":
+        $("tearL").style.display=$("tearR").style.display="block"; eyes.forEach(e=>{e.style.height="10px";e.style.transform="rotate(25deg)";}); mouth.style.transform="translateX(-50%) rotate(180deg)"; mouth.style.top="61%"; $("tummy").textContent="💔"; break;
+    }
+    $("potato").animate([{transform:"scale(.94) rotate(-3deg)"},{transform:"scale(1.03) rotate(2deg)"},{transform:"scale(1) rotate(-2deg)"}],{duration:420,easing:"ease-out"});
+  }
+  async function toggleMusic(force) {
+    musicOn = typeof force === "boolean" ? force : !musicOn;
+    if (musicOn) {
+      try { await audio.play(); $("musicToggle").textContent="♫ Music: on"; }
+      catch(e) { musicOn=false; $("musicToggle").textContent="♫ Tap for music"; }
+    } else { audio.pause(); $("musicToggle").textContent="♫ Music: off"; }
+  }
+  function next() {
+    if (!musicOn) toggleMusic(true);
+    showPage(index === pages.length-1 ? 0 : index+1);
+  }
+  $("nextBtn").addEventListener("click", next);
+  $("musicToggle").addEventListener("click", () => toggleMusic());
+  document.addEventListener("keydown", e => { if(e.key==="ArrowRight" || e.key===" " || e.key==="Enter"){ if(e.target.tagName!=="BUTTON"){e.preventDefault();next();} } if(e.key==="ArrowLeft")showPage(index-1); });
+  // Tap/click the background to continue, but don't double-trigger button clicks.
+  document.addEventListener("click", e => {
+    if (!e.target.closest("button") && !e.target.closest("a")) next();
+  });
+  showPage(0);
+})();
+</script>
+</body>
+</html>
